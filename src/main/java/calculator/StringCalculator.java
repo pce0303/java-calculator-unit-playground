@@ -19,7 +19,15 @@ public class StringCalculator {
         String[] tokens = contents.split(delimiter);
 
         for (String token : tokens) {
-            result += Integer.parseInt(token);
+            try {
+                int number = Integer.parseInt(token);
+                if (number < 0) {
+                    throw new RuntimeException("음수가 입력되었습니다.");
+                }
+                result += number;
+            } catch (NumberFormatException e) {
+                throw new RuntimeException("숫자가 아닌 문자열이 입력되었습니다.");
+            }
         }
 
         return result;
