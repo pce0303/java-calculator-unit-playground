@@ -2,8 +2,8 @@ package calculator;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.*;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class StringCalculatorTest {
 
@@ -17,6 +17,6 @@ class StringCalculatorTest {
         int actual = stringCalculator.add("//;\n1;2;3");
 
         // then
-        assertEquals(6, actual);
+        assertThat(6).isEqualTo(actual);
     }
 }
