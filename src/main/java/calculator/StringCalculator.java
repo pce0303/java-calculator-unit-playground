@@ -10,7 +10,7 @@ public class StringCalculator {
         if (input.startsWith("//")) {
             char custom = input.charAt(2);
             delimiter = "[,|:" + custom + "]";
-            contents = input.substring(5);
+            contents = input.substring(4);
         } else {
             delimiter = "[,|:]";
             contents = input;
