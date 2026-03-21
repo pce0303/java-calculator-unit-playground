@@ -4,14 +4,18 @@ public class StringCalculator {
     int add(String input) {
         int result = 0;
 
-        char custom = 0;
+        String delimiter;
+        String contents;
 
         if (input.startsWith("//")) {
-            custom = input.charAt(2);
+            char custom = input.charAt(2);
+            delimiter = "[,|:" + custom + "]";
+            contents = input.substring(5);
+        } else {
+            delimiter = "[,|:]";
+            contents = input;
         }
 
-        String delimiter = "[,|:" + custom + "]";
-        String contents = input.substring(5);
         String[] tokens = contents.split(delimiter);
 
         for (String token : tokens) {
