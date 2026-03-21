@@ -14,8 +14,8 @@ public class StringCalculator {
         String contents = input.substring(5);
         String[] tokens = contents.split(delimiter);
 
-        for (int i = 0; i < tokens.length; i++) {
-            result += Integer.parseInt(tokens[i]);
+        for (String token : tokens) {
+            result += Integer.parseInt(token);
         }
 
         return result;
