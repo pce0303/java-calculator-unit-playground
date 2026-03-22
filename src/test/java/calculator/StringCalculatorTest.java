@@ -12,6 +12,7 @@ class StringCalculatorTest {
     void customDelimiter() {
         // given
         StringCalculator stringCalculator = new StringCalculator();
+        int expected = 6;
 
         // when
         String[] parsed = stringCalculator.parser("//;\n1;2;3");
@@ -19,7 +20,7 @@ class StringCalculatorTest {
         int actual = stringCalculator.add(tokens);
 
         // then
-        assertThat(actual).isEqualTo(6);
+        assertThat(actual).isEqualTo(expected);
     }
 
     @Test
