@@ -1,9 +1,8 @@
 package calculator;
 
 public class StringCalculator {
-    int add(String input) {
-        int result = 0;
 
+    String[] parser(String input) {
         String delimiter;
         String contents;
 
@@ -16,7 +15,11 @@ public class StringCalculator {
             contents = input;
         }
 
-        String[] tokens = contents.split(delimiter);
+        return new String[]{contents, delimiter};
+    }
+
+    String[] validator(String[] list) {
+        String[] tokens = list[0].split(list[1]);
 
         for (String token : tokens) {
             try {
@@ -24,10 +27,19 @@ public class StringCalculator {
                 if (number < 0) {
                     throw new RuntimeException("음수가 입력되었습니다.");
                 }
-                result += number;
             } catch (NumberFormatException e) {
                 throw new RuntimeException("숫자가 아닌 문자열이 입력되었습니다.");
             }
+        }
+        return tokens;
+    }
+
+    int add(String[] tokens) {
+        int result = 0;
+
+        for (String token : tokens) {
+            int number = Integer.parseInt(token);
+            result += number;
         }
 
         return result;
