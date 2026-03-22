@@ -14,7 +14,9 @@ class StringCalculatorTest {
         StringCalculator stringCalculator = new StringCalculator();
 
         // when
-        int actual = stringCalculator.add("//;\n1;2;3");
+        String[] parsed = stringCalculator.parser("//;\n1;2;3");
+        String[] tokens = stringCalculator.validator(parsed);
+        int actual = stringCalculator.add(tokens);
 
         // then
         assertThat(6).isEqualTo(actual);
