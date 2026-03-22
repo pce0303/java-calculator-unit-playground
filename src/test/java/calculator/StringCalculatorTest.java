@@ -19,7 +19,7 @@ class StringCalculatorTest {
         int actual = stringCalculator.add(tokens);
 
         // then
-        assertThat(6).isEqualTo(actual);
+        assertThat(actual).isEqualTo(6);
     }
 
     @Test
@@ -34,7 +34,7 @@ class StringCalculatorTest {
         int actual = stringCalculator.add(tokens);
 
         // then
-        assertThat(6).isEqualTo(actual);
+        assertThat(actual).isEqualTo(6);
     }
 
     @Test
@@ -49,6 +49,6 @@ class StringCalculatorTest {
         int actual = stringCalculator.add(tokens);
 
         // then
-        assertThat(6).isEqualTo(actual);
+        assertThat(actual).isEqualTo(6);
     }
 }
