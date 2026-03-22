@@ -53,7 +53,7 @@ class CalculatorTest {
         Calculator calculator = new Calculator();
 
         // when
-        int actual = calculator.divide(6, 3);
+        int actual = calculator.divide(6, 0);
 
         // then
         assertEquals(2, actual);

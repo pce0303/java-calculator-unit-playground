@@ -14,6 +14,10 @@ public class Calculator {
     }
 
     int divide(int num1, int num2) {
-        return num1 / num2;
+        if (num2 != 0) {
+            return num1 / num2;
+        } else {
+            throw new RuntimeException("분모에 0이 입력되었습니다.");
+        }
     }
 }
