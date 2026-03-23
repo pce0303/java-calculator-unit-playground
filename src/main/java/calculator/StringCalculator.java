@@ -1,8 +1,11 @@
 package calculator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StringCalculator {
 
-    String[] parser(String input) {
+    List<String> parser(String input) {
         String delimiter;
         String contents;
 
@@ -14,12 +17,14 @@ public class StringCalculator {
             delimiter = "[,|:]";
             contents = input;
         }
-
-        return new String[]{contents, delimiter};
+        List<String> list = new ArrayList<>();
+        list.add(delimiter);
+        list.add(contents);
+        return list;
     }
 
-    String[] validator(String[] list) {
-        String[] tokens = list[0].split(list[1]);
+    List<String> validator(List<String> list) {
+        List<String> tokens = List.of(list.get(0).split(list.get(1)));
 
         for (String token : tokens) {
             try {
@@ -34,7 +39,7 @@ public class StringCalculator {
         return tokens;
     }
 
-    int add(String[] tokens) {
+    int add(List<String> tokens) {
         int result = 0;
 
         for (String token : tokens) {
