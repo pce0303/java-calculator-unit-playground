@@ -2,6 +2,9 @@ package calculator;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.*;
+
 import static org.assertj.core.api.Assertions.*;
 
 
@@ -15,8 +18,8 @@ class StringCalculatorTest {
         int expected = 6;
 
         // when
-        String[] parsed = stringCalculator.parser("//;\n1;2;3");
-        String[] tokens = stringCalculator.validator(parsed);
+        List<String> parsed = stringCalculator.parser("//;\n1;2;3");
+        List<String> tokens = stringCalculator.validator(parsed);
         int actual = stringCalculator.add(tokens);
 
         // then
@@ -30,8 +33,8 @@ class StringCalculatorTest {
         StringCalculator stringCalculator = new StringCalculator();
 
         // when
-        String[] parsed = stringCalculator.parser("//;\n1;-2;3");
-        String[] tokens = stringCalculator.validator(parsed);
+        List<String> parsed = stringCalculator.parser("//;\n1;-2;3");
+        List<String> tokens = stringCalculator.validator(parsed);
         int actual = stringCalculator.add(tokens);
 
         // then
@@ -45,8 +48,8 @@ class StringCalculatorTest {
         StringCalculator stringCalculator = new StringCalculator();
 
         // when
-        String[] parsed = stringCalculator.parser("//;\n1;?2;3");
-        String[] tokens = stringCalculator.validator(parsed);
+        List<String> parsed = stringCalculator.parser("//;\n1;?2;3");
+        List<String> tokens = stringCalculator.validator(parsed);
         int actual = stringCalculator.add(tokens);
 
         // then
