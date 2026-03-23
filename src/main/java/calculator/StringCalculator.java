@@ -18,8 +18,8 @@ public class StringCalculator {
             contents = input;
         }
         List<String> list = new ArrayList<>();
-        list.add(delimiter);
         list.add(contents);
+        list.add(delimiter);
         return list;
     }
 
