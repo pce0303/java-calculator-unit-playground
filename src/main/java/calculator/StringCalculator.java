@@ -5,7 +5,7 @@ import java.util.List;
 
 public class StringCalculator {
 
-    List<String> parser(String input) {
+    private List<String> parser(String input) {
         String delimiter;
         String contents;
 
@@ -23,7 +23,7 @@ public class StringCalculator {
         return list;
     }
 
-    List<String> validator(List<String> list) {
+    private List<String> validator(List<String> list) {
         List<String> tokens = List.of(list.get(0).split(list.get(1)));
 
         for (String token : tokens) {
@@ -39,7 +39,7 @@ public class StringCalculator {
         return tokens;
     }
 
-    int add(List<String> tokens) {
+    private int add(List<String> tokens) {
         int result = 0;
 
         for (String token : tokens) {
@@ -48,5 +48,11 @@ public class StringCalculator {
         }
 
         return result;
+    }
+
+    public int execution(String input) {
+        List<String> parsed = parser(input);
+        List<String> tokens = validator(parsed);
+        return add(tokens);
     }
 }

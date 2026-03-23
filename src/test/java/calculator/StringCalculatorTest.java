@@ -18,9 +18,7 @@ class StringCalculatorTest {
         int expected = 6;
 
         // when
-        List<String> parsed = stringCalculator.parser("//;\n1;2;3");
-        List<String> tokens = stringCalculator.validator(parsed);
-        int actual = stringCalculator.add(tokens);
+        int actual = stringCalculator.execution("//;\n1,2;3");
 
         // then
         assertThat(actual).isEqualTo(expected);
@@ -33,9 +31,7 @@ class StringCalculatorTest {
         StringCalculator stringCalculator = new StringCalculator();
 
         // when
-        List<String> parsed = stringCalculator.parser("//;\n1;-2;3");
-        List<String> tokens = stringCalculator.validator(parsed);
-        int actual = stringCalculator.add(tokens);
+        int actual = stringCalculator.execution("//;\n1,-2;3");
 
         // then
         assertThat(actual).isEqualTo(6);
@@ -48,9 +44,7 @@ class StringCalculatorTest {
         StringCalculator stringCalculator = new StringCalculator();
 
         // when
-        List<String> parsed = stringCalculator.parser("//;\n1;?2;3");
-        List<String> tokens = stringCalculator.validator(parsed);
-        int actual = stringCalculator.add(tokens);
+        int actual = stringCalculator.execution("//;\n1,k2;3");
 
         // then
         assertThat(actual).isEqualTo(6);
