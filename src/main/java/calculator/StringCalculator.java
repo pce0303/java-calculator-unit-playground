@@ -23,7 +23,8 @@ public class StringCalculator {
         return list;
     }
 
-    private List<String> validator(List<String> list) {
+    private int validator(List<String> list) {
+        int result = 0;
         List<String> tokens = List.of(list.get(0).split(list.get(1)));
 
         for (String token : tokens) {
@@ -32,27 +33,16 @@ public class StringCalculator {
                 if (number < 0) {
                     throw new RuntimeException("음수가 입력되었습니다.");
                 }
+                result += number;
             } catch (NumberFormatException e) {
                 throw new RuntimeException("숫자가 아닌 문자열이 입력되었습니다.");
             }
         }
-        return tokens;
-    }
-
-    private int add(List<String> tokens) {
-        int result = 0;
-
-        for (String token : tokens) {
-            int number = Integer.parseInt(token);
-            result += number;
-        }
-
         return result;
     }
 
-    public int execution(String input) {
+    public int add(String input) {
         List<String> parsed = parser(input);
-        List<String> tokens = validator(parsed);
-        return add(tokens);
+        return validator(parsed);
     }
 }

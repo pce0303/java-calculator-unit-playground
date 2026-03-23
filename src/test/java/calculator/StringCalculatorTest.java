@@ -18,7 +18,7 @@ class StringCalculatorTest {
         int expected = 6;
 
         // when
-        int actual = stringCalculator.execution("//;\n1,2;3");
+        int actual = stringCalculator.add("//;\n1,2;3");
 
         // then
         assertThat(actual).isEqualTo(expected);
@@ -31,7 +31,7 @@ class StringCalculatorTest {
         StringCalculator stringCalculator = new StringCalculator();
 
         // when
-        int actual = stringCalculator.execution("//;\n1,-2;3");
+        int actual = stringCalculator.add("//;\n1,-2;3");
 
         // then
         assertThat(actual).isEqualTo(6);
@@ -44,7 +44,7 @@ class StringCalculatorTest {
         StringCalculator stringCalculator = new StringCalculator();
 
         // when
-        int actual = stringCalculator.execution("//;\n1,k2;3");
+        int actual = stringCalculator.add("//;\n1,k2;3");
 
         // then
         assertThat(actual).isEqualTo(6);
